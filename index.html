@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
-    <script src="/js/application.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="/src/css/stylesheet.css">
+    <script src="/src/js/application.js" defer></script>
     <title> To-Do App </title>
 
 </head>
@@ -19,20 +19,25 @@
 
     <main>
         <form>
-            <div class="images">
-                <img class="addTask" src="/img/add-file.gif" alt="Add Task" title="Add Task"
-                    attribution="https://www.flaticon.com/free-animated-icons/add-file">
-                <img class="editTask" src="/img/edit.gif" alt="Edit Task" title="Edit Task"
-                    attribution="https://www.flaticon.com/free-animated-icons/paper">
-                <img class="sortTask" src="/img/sort.gif" alt="Sort Task" title="Sort Task"
-                    attribution="https://www.flaticon.com/free-animated-icons/arrows">
-                <img class="deleteTask" src="/img/bin.gif" alt="Delete Task" title="Delete Task"
-                    attribution="https://www.flaticon.com/free-animated-icons/document">
-            </div>
-
             <h2> My list: </h2>
 
-            <input type="text" placeholder="Enter your Task.." name="name" id="name">
+            <div class="taskLine">
+                <input type="text" placeholder="Enter your Task.." name="task" id="task">
+                <a href="#"><img class="addTask" src="/src/images/add-file.gif" alt="Add Task" title="Add Task"
+                        attribution="https://www.flaticon.com/free-animated-icons/add-file"></a>
+                <a href="#"><img class="editTask" src="/src/images/edit.gif" alt="Edit Task" title="Edit Task"
+                        attribution="https://www.flaticon.com/free-animated-icons/paper"></a>
+                <a href="#"><img class="sortTask" src="/src/images/sort.gif" alt="Sort Task" title="Sort Task"
+                        attribution="https://www.flaticon.com/free-animated-icons/arrows"></a>
+                <a href="#"><img class="deleteTask" src="/src/images/bin.gif" alt="Delete Task" title="Delete Task"
+                        attribution="https://www.flaticon.com/free-animated-icons/document"></a>
+            </div>
+
+
+            <div class="tasks"></div>
+
+
+
 
         </form>
     </main>
