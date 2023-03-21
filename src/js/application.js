@@ -1,9 +1,10 @@
 //Get Element by class and id
 const inputTask = document.getElementById("task");
 const submitTask = document.getElementById("addTask1");
-const deleteTask = document.getElementById("deleteTask1");
+const deleteTask = document.getElementById("deleteTask2");
+const checkTask = document.getElementById("checkTask2");
 const sortTask = document.getElementById("sortTask1");
-const editTask = document.getElementById("editTask1");
+const editTask = document.getElementById("editTask2");
 const inputDate = document.getElementById("date")
 
 //Where the list should go
@@ -43,9 +44,12 @@ function submitFunc(event) {
 
                 <p class="span2"> ${inputDate.value} </p>
         
+                <button type="submit" id="checkTask2"><img class="checkTask" src="/src/images/check.gif" alt="Completed" title="Completed"
+                        attribution="href="https://www.flaticon.com/free-animated-icons/miscellaneous"></button>
+
                 <button type="submit" id="editTask2"><img class="editTask" src="/src/images/edit.gif" alt="Edit Task" title="Edit Task"
                         attribution="https://www.flaticon.com/free-animated-icons/paper"></button>
-
+                
                 <button type="submit" id="deleteTask2"><img class="deleteTask" src="/src/images/bin.gif"
                         alt="Delete Task" title="Delete Task"
                         attribution="https://www.flaticon.com/free-animated-icons/document"></button>
@@ -65,44 +69,9 @@ function newTaskArray(taskText) {
     const task = {
         time: inputDate.value,
         title: taskText,
+        completed: false,
     };
 
     //Push the user input into empty array
     taskArray.push(task);
-    // console.log(taskArray);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Delete task from array
-// function deleteTaskArray() {
-
-//     let x = inputTask.value
-    
-//     taskArray.splice(x,1)
-//     console.log(taskArray);
-// }
-// deleteTask.addEventListener('click',deleteTaskArray);
-
-

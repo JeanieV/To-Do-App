@@ -1,4 +1,5 @@
 /* Body*/
+
 body {
     background-image: url('/src/images/office_background.jpg');
     background-repeat: no-repeat;
@@ -6,6 +7,7 @@ body {
     font-family: Georgia;
 }
 
+/*Text css*/
 
 h1 {
     text-align: center;
@@ -30,13 +32,13 @@ form {
 }
 
 /* Divs in the HTML*/
+
 .taskLine {
     display: inline-flex;
     margin-top: 20px;
     margin-left: 40%;
 
 }
-
 .inputLine {
     display: inline-flex;
     margin-top: 20px;
@@ -49,7 +51,8 @@ form {
 .addTask,
 .editTask,
 .sortTask,
-.deleteTask {
+.deleteTask,
+.checkTask {
     width: 48px;
     border-radius: 10px;
 }
@@ -57,7 +60,8 @@ form {
 #addTask1,
 #editTask1,
 #sortTask1,
-#deleteTask1 {
+#deleteTask1,
+#checkTask1 {
     width: min-content;
     background-color: transparent;
     border: none;
@@ -70,7 +74,8 @@ form {
 #sortTask1:hover,
 #deleteTask1:hover,
 #editTask2:hover,
-#deleteTask2:hover {
+#deleteTask2:hover,
+#checkTask2:hover {
     animation-name: buttonsGif;
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -80,7 +85,7 @@ form {
 
 @keyframes buttonsGif {
     0% {
-        transform: scale(1.4);
+        transform: scale(1.3);
     }
 
     100% {
@@ -88,9 +93,13 @@ form {
     }
 }
 
+/*Input fields*/
 
 input {
     border-radius: 7px;
+    border-color: #47484A;
+    border-width: 3px;
+    border-style: solid;
     width: 40%;
     height: 30px;
     margin-left: 20px;
@@ -98,6 +107,7 @@ input {
     font-size: 20px;
     color: #47484A;
     background-color: #ACBAAD;
+    height: 45px;
 }
 
 
@@ -106,8 +116,11 @@ input {
 .span1{
     font-size: 20px;
     padding: 20px;
-    margin: 20px;
+    margin: 15px;
     border-radius: 7px;
+    border-color: #47484A;
+    border-width: 3px;
+    border-style: solid;
     color:#47484A;
     background-color: #ACBAAD;
     width: 110px;
@@ -117,23 +130,28 @@ input {
 .span2{
     font-size: 20px;
     padding: 20px;
-    margin: 20px;
+    margin: 15px;
     border-radius: 7px;
+    border-color: #47484A;
+    border-width: 3px;
+    border-style: solid;
     color:#47484A;
     background-color: #ACBAAD;
     width: 110px;
     text-align: center;
 }
 
+.spanLine{
+    display: inline-flex;
+    margin-left: 20px;
+}
+
 /*Button span css*/
 #editTask2,
-#deleteTask2{
+#deleteTask2,
+#checkTask2{
     width: min-content;
     background-color: transparent;
     border: none;
 }
 
-.spanLine{
-    display: inline-flex;
-    margin-left: 20px;
-}
