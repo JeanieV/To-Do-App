@@ -15,12 +15,12 @@ h1 {
 
 h2 {
     text-align: center;
-    color: #EAEAEA;
+    color: #47484A;
     font-size: 30px;
 }
 
 form {
-    max-width: 500px;
+    max-width: 570px;
     height: 550px;
     background-color: #BC9476;
     margin: 137px auto;
@@ -29,39 +29,111 @@ form {
     box-shadow: 0 10px 30px #BC9476;
 }
 
-/* Images */
+/* Divs in the HTML*/
+.taskLine {
+    display: inline-flex;
+    margin-top: 20px;
+    margin-left: 40%;
 
-.images {
-    margin-left: 130px;
 }
 
+.inputLine {
+    display: inline-flex;
+    margin-top: 20px;
+    margin-left: 70px;
+}
+
+
+/*Buttons*/
+
+.addTask,
 .editTask,
 .sortTask,
 .deleteTask {
-    width: 45px;
-    border-radius: 10px;
-    align-items: center;
-    padding: 5px;
-}
-
-.taskLine{
-    display: inline;
-}
-
-
-.addTask{
-    width: 45px;
+    width: 48px;
     border-radius: 10px;
 }
+
+#addTask1,
+#editTask1,
+#sortTask1,
+#deleteTask1 {
+    width: min-content;
+    background-color: transparent;
+    border: none;
+}
+
+/* Animation for buttons*/
+
+#addTask1:hover,
+#editTask1:hover,
+#sortTask1:hover,
+#deleteTask1:hover,
+#editTask2:hover,
+#deleteTask2:hover {
+    animation-name: buttonsGif;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-play-state: running;
+}
+
+@keyframes buttonsGif {
+    0% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 
 input {
     border-radius: 7px;
-    border-width: 2px;
-    border-color: #BC9476;
     width: 40%;
     height: 30px;
     margin-left: 20px;
     text-align: center;
     font-size: 20px;
     color: #47484A;
+    background-color: #ACBAAD;
+}
+
+
+
+/*Span element css*/
+.span1{
+    font-size: 20px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 7px;
+    color:#47484A;
+    background-color: #ACBAAD;
+    width: 110px;
+    text-align: center;
+}
+
+.span2{
+    font-size: 20px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 7px;
+    color:#47484A;
+    background-color: #ACBAAD;
+    width: 110px;
+    text-align: center;
+}
+
+/*Button span css*/
+#editTask2,
+#deleteTask2{
+    width: min-content;
+    background-color: transparent;
+    border: none;
+}
+
+.spanLine{
+    display: inline-flex;
+    margin-left: 20px;
 }

@@ -19,20 +19,30 @@
 
     <main>
         <form>
-            <h2> My list: </h2>
+            <h2> Enter Task and Due Date: </h2>
+
+
+            <div class="inputLine">
+                <input type="text" placeholder="Enter your Task.." name="task" id="task">
+                <input type="date" id="date">
+            </div>
 
             <div class="taskLine">
-                <input type="text" placeholder="Enter your Task.." name="task" id="task">
+                <button type="submit" id="addTask1"><img class="addTask" src="/src/images/add-file.gif" alt="Add Task"
+                        title="Add Task" attribution="https://www.flaticon.com/free-animated-icons/add-file"></button>
 
-                <button type="submit" id="addTask1"><img class="addTask" src="/src/images/add-file.gif" alt="Add Task" title="Add Task"
-                        attribution="https://www.flaticon.com/free-animated-icons/add-file"></button>
-                <button type="submit" id="editTask1"><img class="editTask" src="/src/images/edit.gif" alt="Edit Task" title="Edit Task"
-                        attribution="https://www.flaticon.com/free-animated-icons/paper"></button>
+                <!-- <button type="submit" id="editTask1"><img class="editTask" src="/src/images/edit.gif" alt="Edit Task" title="Edit Task"
+                        attribution="https://www.flaticon.com/free-animated-icons/paper"></button> -->
+
                 <button type="submit" id="sortTask1"><img class="sortTask" src="/src/images/sort.gif" alt="Sort Task" title="Sort Task"
                         attribution="https://www.flaticon.com/free-animated-icons/arrows"></button>
-                <button type="submit" id="deleteTask1"><img class="deleteTask" src="/src/images/bin.gif" alt="Delete Task" title="Delete Task"
-                        attribution="https://www.flaticon.com/free-animated-icons/document"></button>
+
+                <!-- <button type="submit" id="deleteTask1"><img class="deleteTask" src="/src/images/bin.gif"
+                        alt="Delete Task" title="Delete Task"
+                        attribution="https://www.flaticon.com/free-animated-icons/document"></button> -->
             </div>
+
+            <h2> My To Do List: </h2>
 
 
             <div id="tasks"></div>
