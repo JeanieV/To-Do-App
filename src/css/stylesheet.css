@@ -23,7 +23,7 @@ h2 {
 
 form {
     max-width: 570px;
-    height: 550px;
+    height: max-content;
     background-color: #BC9476;
     margin: 137px auto;
     border-radius: 7px;

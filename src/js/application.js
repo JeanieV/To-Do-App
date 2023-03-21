@@ -17,7 +17,7 @@ let taskArray = [];
 //Function for what happens when user clicks on Add Task
 function submitFunc(event) {
     event.preventDefault();
-    
+
 
     let toDo = inputTask.value;
     toDo = toDo.trim();
@@ -30,16 +30,16 @@ function submitFunc(event) {
     }
     else if (toDate == "") {
         alert("Kindly enter a new due date!")
-        
+
     }
     else {
         console.log(taskArray);
         newTaskArray(inputTask.value);
 
         //This will append to form when the user enters task and due date
-        let task1 = 
-             `
-            <div class="spanLine">
+        let task1 =
+            `
+            <div class="spanLine" >
                 <p class="span1"> ${inputTask.value} </p>
 
                 <p class="span2"> ${inputDate.value} </p>
@@ -56,13 +56,15 @@ function submitFunc(event) {
             </div>
             `
         document.getElementById("tasks").innerHTML += task1
+        
     }
-    
+
 }
 submitTask.addEventListener("click", submitFunc);
 
 
-// //This function will be added to the empty array
+
+//This function will be added to the empty array
 function newTaskArray(taskText) {
 
     //Object created
@@ -74,4 +76,60 @@ function newTaskArray(taskText) {
 
     //Push the user input into empty array
     taskArray.push(task);
+   
 }
+
+
+// deleteTask.addEventListener('click', (event) => {
+//     event.preventDefault();
+
+//     let x = inputTask.value;
+//     taskArray.splice(x,1)
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// class DeleteTask {
+//     time = inputDate.value;
+//     title = inputTask.value;
+//     completed = false;
+
+//     constructor(time, title, completed) {
+//         this._time = time;
+//         this._title = title;
+//         this._completed = completed;
+//     }
+// }
+
+// console.log(DeleteTask.task)
+
+
+// function delTaskArray() {
+
+//     for (let i = 0; i < taskArray.length; i++) {
+
+//         if (inputTask.value == DeleteTask.title) {
+//             taskArray.splice(inputTask[i], 1)
+//         }
+//         else {
+//             console.log("Try again!")
+//         }
+//     }
+
+// }
+
+// // deleteTask.addEventListener('click', delTaskArray)
