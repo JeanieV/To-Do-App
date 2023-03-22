@@ -5,6 +5,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     font-family: Georgia;
+    overflow-x: hidden;
 }
 
 /*Text css*/
@@ -40,6 +41,7 @@ form {
     margin-top: 20px;
     text-align: center;
 }
+
 .inputLine {
     display: block;
     margin-top: 20px;
@@ -114,7 +116,7 @@ input {
 
 
 /*Span element css*/
-.span1{
+.span1 {
     font-size: 20px;
     padding: 20px;
     margin: 15px;
@@ -122,13 +124,13 @@ input {
     border-color: #47484A;
     border-width: 3px;
     border-style: solid;
-    color:#47484A;
+    color: #47484A;
     background-color: #ACBAAD;
     width: 110px;
     text-align: center;
 }
 
-.span2{
+.span2 {
     font-size: 20px;
     padding: 20px;
     margin: 15px;
@@ -136,13 +138,13 @@ input {
     border-color: #47484A;
     border-width: 3px;
     border-style: solid;
-    color:#47484A;
+    color: #47484A;
     background-color: #ACBAAD;
     width: 110px;
     text-align: center;
 }
 
-.spanLine{
+.spanLine {
     display: inline-flex;
     margin-left: 20px;
 }
@@ -150,9 +152,170 @@ input {
 /*Button span css*/
 #editTask2,
 #deleteTask2,
-#checkTask2{
+#checkTask2 {
     width: min-content;
     background-color: transparent;
     border: none;
 }
 
+/*Media Queries*/
+
+/* @media only screen and (min-width: 200px) {
+
+    h1 {
+        font-size: 25px;
+    }
+    h2 {
+        font-size: 10px;
+    }
+    form {
+        margin: 0px;
+        max-width: 150px;
+        padding: 10px;
+    }
+    input {
+        font-size: 7px;
+        height: 20px;
+        border-width: 1px;
+    }
+    .addTask,
+    .editTask,
+    .sortTask,
+    .deleteTask,
+    .checkTask {
+        width: 15px;
+        border-radius: 5px;
+    }
+    .taskLine {
+        margin-top: 3px;
+    }
+    .inputLine {
+        margin-top: 5px;
+    }
+    .span1 {
+        font-size: 7px;
+        padding: 2px;
+        margin: 1px;
+        width: 25px;
+        height: 15px;
+    }
+    .span2 {
+    font-size: 7px;
+    padding: 2px;
+    margin: 1px;
+    width: 25px;
+    height: 15px;
+    }
+    .spanLine {
+        display: inline-flex;
+        margin-left: 0px
+        ;
+    }
+}
+
+@media only screen and (min-width: 320px) {
+
+    h1 {
+        font-size: 25px;
+    }
+    h2 {
+        font-size: 10px;
+    }
+    form {
+        margin: 0px;
+        max-width: 150px;
+        padding: 10px;
+        
+    }
+    input {
+        font-size: 7px;
+        height: 20px;
+        border-width: 1px;
+    }
+    .addTask,
+    .editTask,
+    .sortTask,
+    .deleteTask,
+    .checkTask {
+        width: 15px;
+        border-radius: 5px;
+    }
+    .taskLine {
+        margin-top: 3px;
+    }
+    .inputLine {
+        margin-top: 5px;
+    }
+    .span1 {
+        font-size: 7px;
+        padding: 2px;
+        margin: 1px;
+        width: 25px;
+        height: 15px;
+    }
+    .span2 {
+    font-size: 7px;
+    padding: 2px;
+    margin: 1px;
+    width: 25px;
+    height: 15px;
+    }
+    .spanLine {
+        display: inline-flex;
+        margin-left: 0px
+        ;
+    }
+}
+
+@media only screen and (min-width: 2480px) {
+
+    h1 {
+        font-size: 25px;
+    }
+    h2 {
+        font-size: 10px;
+    }
+    form {
+        margin: 0px;
+        max-width: 150px;
+        padding: 10px;
+    }
+    input {
+        font-size: 7px;
+        height: 20px;
+        border-width: 1px;
+    }
+    .addTask,
+    .editTask,
+    .sortTask,
+    .deleteTask,
+    .checkTask {
+        width: 15px;
+        border-radius: 5px;
+    }
+    .taskLine {
+        margin-top: 3px;
+    }
+    .inputLine {
+        margin-top: 5px;
+    }
+    .span1 {
+        font-size: 7px;
+        padding: 2px;
+        margin: 1px;
+        width: 25px;
+        height: 15px;
+    }
+    .span2 {
+    font-size: 7px;
+    padding: 2px;
+    margin: 1px;
+    width: 25px;
+    height: 15px;
+    }
+    .spanLine {
+        display: inline-flex;
+        margin-left: 0px
+        ;
+    }
+} */

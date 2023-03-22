@@ -47,14 +47,14 @@ submitTask.addEventListener("click", submitFunc);
 
 
 //This will append to form when the user enters task and due date
-function appendTask(index){
+function appendTask(task){
 
     let task1 =
             `
-            <div class="spanLine" data-index="${index}">
-                <p class="span1"> ${inputTask.value} </p>
+            <div class="spanLine" >
+                <p class="span1"> ${task.title} </p>
 
-                <p class="span2"> ${inputDate.value} </p>
+                <p class="span2"> ${task.time} </p>
         
                 <button type="submit" id="checkTask2"><img class="checkTask" src="/src/images/check.gif" alt="Completed" title="Completed"
                         attribution="href="https://www.flaticon.com/free-animated-icons/miscellaneous"></button>
@@ -83,9 +83,9 @@ function newTaskArray(taskText) {
 
     //Push the user input into empty array
     taskArray.push(task);
-    
-}
 
+    return task;
+}
 
 
 function taskOperations(usersparam) {
@@ -103,6 +103,7 @@ function taskOperations(usersparam) {
         document.getElementById("tasks").innerHTML + user1;
     }
 
+
     // Update data-index attributes
     taskElements = document.getElementsByClassName("spanLine");
 
@@ -113,21 +114,7 @@ function taskOperations(usersparam) {
             removeUser(event, index);
         });
     });
-}
-
-
-function removeUser(event, index) {
-    
-    const entry = event.target.parentNode;
-    taskArray.splice(index, 1);
-
-    entry.parentNode.removeChild(entry);
-    taskOperations(taskArray);
-    console.log(taskArray)
-}
-
-
-
+};
 
 
 
