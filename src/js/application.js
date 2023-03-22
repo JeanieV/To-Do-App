@@ -14,10 +14,8 @@ let newTasks = document.getElementById("tasks");
 let taskArray = [];
 
 
-
-
 //Function for what happens when user clicks on Add Task
-function submitFunc(event, index) {
+function submitFunc(event) {
     event.preventDefault();
 
     //Input fields
@@ -39,8 +37,9 @@ function submitFunc(event, index) {
         console.log(taskArray);
         newTaskArray(inputTask.value);
 
-        appendTask(index);
-        taskOperations(taskArray)
+        appendTask(taskArray);
+        
+        taskOperations(taskArray);
         
 }
 }
@@ -89,45 +88,28 @@ function newTaskArray(taskText) {
 
 
 
-function taskOperations(index) {
-    let listElements = document.getElementsByClassName("spanLine");
+function taskOperations(usersparam) {
+    let taskElements = document.getElementsByClassName("spanLine");
 
-    let elementLength = listElements.length;
-    
-
-    Array.from(listElements).forEach((deleteTask) => {
-        deleteTask.remove();
+    Array.from(taskElements).forEach((event) => {
+        event.remove();
     })
 
-    for (let i = 0; i < taskArray.length; i++) {
-        
-        let task1 =
-            `
-            <div class="spanLine" data-index="${index}">
-                <p class="span1"> ${inputTask.value} </p>
 
-                <p class="span2"> ${inputDate.value} </p>
-        
-                <button type="submit" id="checkTask2"><img class="checkTask" src="/src/images/check.gif" alt="Completed" title="Completed"
-                        attribution="href="https://www.flaticon.com/free-animated-icons/miscellaneous"></button>
+    for (let i = 0; i < usersparam.length; i++) {
 
-                <button type="submit" id="editTask2"><img class="editTask" src="/src/images/edit.gif" alt="Edit Task" title="Edit Task"
-                        attribution="https://www.flaticon.com/free-animated-icons/paper"></button>
-                
-                <button type="submit" id="deleteTask2"><img class="deleteTask" src="/src/images/bin.gif"
-                        alt="Delete Task" title="Delete Task"
-                        attribution="https://www.flaticon.com/free-animated-icons/document"></button>
-            </div>
-            `
-    document.getElementById("tasks").innerHTML += task1;
+        let user1 = appendTask(usersparam[i]);
+        
+        document.getElementById("tasks").innerHTML + user1;
     }
 
     // Update data-index attributes
-    listElements = document.getElementsByClassName("spanLine");
+    taskElements = document.getElementsByClassName("spanLine");
 
-    Array.from(listElements).forEach((deleteTask, index) => {
-        deleteTask.setAttribute("data-index", index);
-        deleteTask.addEventListener('click', (event) => {
+    Array.from(taskElements).forEach((event, index) => {
+
+        event.setAttribute("data-index", index);
+        event.addEventListener('click', (event) => {
             removeUser(event, index);
         });
     });
@@ -141,9 +123,8 @@ function removeUser(event, index) {
 
     entry.parentNode.removeChild(entry);
     taskOperations(taskArray);
+    console.log(taskArray)
 }
-
-
 
 
 
