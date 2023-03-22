@@ -18,32 +18,30 @@
     </header>
 
     <main>
-        <form>
-            <h2> Enter Task and Due Date: </h2>
+        <div class="formAlign">
+            <form>
+                <h2> Enter Task and Due Date: </h2>
 
+                <div class="inputLine">
+                    <input type="text" placeholder="Enter your Task.." name="task" id="task">
+                    <input type="date" id="date">
+                </div>
 
-            <div class="inputLine">
-                <input type="text" placeholder="Enter your Task.." name="task" id="task">
-                <input type="date" id="date">
-            </div>
+                <div class="taskLine">
+                    <button type="submit" id="addTask1"><img class="addTask" src="/src/images/add-file.gif"
+                            alt="Add Task" title="Add Task"
+                            attribution="https://www.flaticon.com/free-animated-icons/add-file"></button>
 
-            <div class="taskLine">
-                <button type="submit" id="addTask1"><img class="addTask" src="/src/images/add-file.gif" alt="Add Task"
-                        title="Add Task" attribution="https://www.flaticon.com/free-animated-icons/add-file"></button>
+                    <button type="submit" id="sortTask1"><img class="sortTask" src="/src/images/sort.gif"
+                            alt="Sort Task" title="Sort Task"
+                            attribution="https://www.flaticon.com/free-animated-icons/arrows"></button>
+                </div>
 
-                <button type="submit" id="sortTask1"><img class="sortTask" src="/src/images/sort.gif" alt="Sort Task"
-                        title="Sort Task" attribution="https://www.flaticon.com/free-animated-icons/arrows"></button>
+                <h2> My To Do List: </h2>
 
-            </div>
-
-            <h2> My To Do List: </h2>
-
-            <div id="tasks"></div>
-
-
-
-
-        </form>
+                <div id="tasks"></div>
+            </form>
+        </div>
     </main>
 
 

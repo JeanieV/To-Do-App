@@ -14,16 +14,19 @@ let newTasks = document.getElementById("tasks");
 let taskArray = [];
 
 
+
+
 //Function for what happens when user clicks on Add Task
-function submitFunc(event) {
+function submitFunc(event, index) {
     event.preventDefault();
 
-
+    //Input fields
     let toDo = inputTask.value;
     toDo = toDo.trim();
 
     let toDate = inputDate.value;
     toDate = toDate.trim();
+
 
     if (toDo == "") {
         alert("Kindly enter a new task!");
@@ -36,10 +39,20 @@ function submitFunc(event) {
         console.log(taskArray);
         newTaskArray(inputTask.value);
 
-        //This will append to form when the user enters task and due date
-        let task1 =
+        appendTask(index);
+        taskOperations(taskArray)
+        
+}
+}
+submitTask.addEventListener("click", submitFunc);
+
+
+//This will append to form when the user enters task and due date
+function appendTask(index){
+
+    let task1 =
             `
-            <div class="spanLine" >
+            <div class="spanLine" data-index="${index}">
                 <p class="span1"> ${inputTask.value} </p>
 
                 <p class="span2"> ${inputDate.value} </p>
@@ -55,14 +68,9 @@ function submitFunc(event) {
                         attribution="https://www.flaticon.com/free-animated-icons/document"></button>
             </div>
             `
-        document.getElementById("tasks").innerHTML += task1
-        
-    }
-
+    document.getElementById("tasks").innerHTML += task1;
+    
 }
-submitTask.addEventListener("click", submitFunc);
-
-
 
 //This function will be added to the empty array
 function newTaskArray(taskText) {
@@ -76,17 +84,64 @@ function newTaskArray(taskText) {
 
     //Push the user input into empty array
     taskArray.push(task);
-   
+    
 }
 
 
-// deleteTask.addEventListener('click', (event) => {
-//     event.preventDefault();
 
-//     let x = inputTask.value;
-//     taskArray.splice(x,1)
-// })
+function taskOperations(index) {
+    let listElements = document.getElementsByClassName("spanLine");
 
+    let elementLength = listElements.length;
+    
+
+    Array.from(listElements).forEach((deleteTask) => {
+        deleteTask.remove();
+    })
+
+    for (let i = 0; i < taskArray.length; i++) {
+        
+        let task1 =
+            `
+            <div class="spanLine" data-index="${index}">
+                <p class="span1"> ${inputTask.value} </p>
+
+                <p class="span2"> ${inputDate.value} </p>
+        
+                <button type="submit" id="checkTask2"><img class="checkTask" src="/src/images/check.gif" alt="Completed" title="Completed"
+                        attribution="href="https://www.flaticon.com/free-animated-icons/miscellaneous"></button>
+
+                <button type="submit" id="editTask2"><img class="editTask" src="/src/images/edit.gif" alt="Edit Task" title="Edit Task"
+                        attribution="https://www.flaticon.com/free-animated-icons/paper"></button>
+                
+                <button type="submit" id="deleteTask2"><img class="deleteTask" src="/src/images/bin.gif"
+                        alt="Delete Task" title="Delete Task"
+                        attribution="https://www.flaticon.com/free-animated-icons/document"></button>
+            </div>
+            `
+    document.getElementById("tasks").innerHTML += task1;
+    }
+
+    // Update data-index attributes
+    listElements = document.getElementsByClassName("spanLine");
+
+    Array.from(listElements).forEach((deleteTask, index) => {
+        deleteTask.setAttribute("data-index", index);
+        deleteTask.addEventListener('click', (event) => {
+            removeUser(event, index);
+        });
+    });
+}
+
+
+function removeUser(event, index) {
+    
+    const entry = event.target.parentNode;
+    taskArray.splice(index, 1);
+
+    entry.parentNode.removeChild(entry);
+    taskOperations(taskArray);
+}
 
 
 

@@ -22,10 +22,12 @@ h2 {
 }
 
 form {
-    max-width: 570px;
+    max-width: 600px;
     height: max-content;
     background-color: #BC9476;
-    margin: 137px auto;
+    margin-top: 100px;
+    margin-left: 450px;
+    margin-bottom: 50px;
     border-radius: 7px;
     padding: 28px 0 30px;
     box-shadow: 0 10px 30px #BC9476;
@@ -34,17 +36,15 @@ form {
 /* Divs in the HTML*/
 
 .taskLine {
-    display: inline-flex;
+    display: block;
     margin-top: 20px;
-    margin-left: 40%;
-
+    text-align: center;
 }
 .inputLine {
-    display: inline-flex;
+    display: block;
     margin-top: 20px;
-    margin-left: 70px;
+    text-align: center;
 }
-
 
 /*Buttons*/
 
@@ -102,12 +102,13 @@ input {
     border-style: solid;
     width: 40%;
     height: 30px;
-    margin-left: 20px;
+    margin: 10px;
     text-align: center;
     font-size: 20px;
     color: #47484A;
     background-color: #ACBAAD;
     height: 45px;
+    font-family: Georgia
 }
 
 
