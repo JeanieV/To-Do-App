@@ -51,19 +51,16 @@ form {
 /*Buttons*/
 
 .addTask,
-.editTask,
 .sortTask,
+.checkTask,
 .deleteTask,
-.checkTask {
+.editTask {
     width: 48px;
     border-radius: 10px;
 }
 
 #addTask1,
-#editTask1,
-#sortTask1,
-#deleteTask1,
-#checkTask1 {
+#sortTask1 {
     width: min-content;
     background-color: transparent;
     border: none;
@@ -72,12 +69,10 @@ form {
 /* Animation for buttons*/
 
 #addTask1:hover,
-#editTask1:hover,
 #sortTask1:hover,
-#deleteTask1:hover,
-#editTask2:hover,
-#deleteTask2:hover,
-#checkTask2:hover {
+.deleteTask2:hover,
+.editTask2:hover,
+.checkTask2:hover {
     animation-name: buttonsGif;
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -116,6 +111,7 @@ input {
 
 
 /*Span element css*/
+
 .span1 {
     font-size: 20px;
     padding: 20px;
@@ -150,9 +146,10 @@ input {
 }
 
 /*Button span css*/
-#editTask2,
-#deleteTask2,
-#checkTask2 {
+
+.editTask2,
+.deleteTask2,
+.checkTask2 {
     width: min-content;
     background-color: transparent;
     border: none;
