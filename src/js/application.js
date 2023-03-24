@@ -1,17 +1,41 @@
 //Get Element by class and id
 const inputTask = document.getElementById("task");
-const submitTask = document.getElementById("addTask1");
-const sortTask = document.getElementById("sortTask1");
+const submitTask = document.getElementById("addTaskButton");
 const inputDate = document.getElementById("date");
 
 //Where the tasklist should go
 let newTasks = document.getElementById("tasks");
 
 
+
+
 // //Empty Task Array to store input
 let taskArray = [];
 
+// function saveTasks() {
+//     localStorage.setItem('taskArray', JSON.stringify(taskArray));
+// }
 
+
+//Step 1:
+//This function will be added to the empty array
+function newTaskArray(taskText) {
+
+    //Object created
+    const task = {
+        time: inputDate.value,
+        title: taskText,
+        completed: false,
+    };
+
+    //Push the user input into empty array
+    taskArray.push(task);
+    return task;
+
+}
+
+
+//Step 2:
 //Function for what happens when user clicks on Add Task
 function submitFunc(event) {
     event.preventDefault();
@@ -34,20 +58,23 @@ function submitFunc(event) {
     else {
         console.log(taskArray);
         newTaskArray(inputTask.value);
-
+        
         appendTask(taskArray);
+
+        sortArrayTasks(taskArray);
+
         taskOperations(taskArray);
+
 
         // Clear the form inputs
         document.getElementById("task").value = '';
         document.getElementById("date").value = '';
-
-
     }
 }
 submitTask.addEventListener("click", submitFunc);
 
 
+//Step 3:
 //This will append to form when the user enters task and due date
 function appendTask(task) {
 
@@ -67,32 +94,34 @@ function appendTask(task) {
                 <button type="submit" class="deleteTask2"><img class="deleteTask" src="/src/images/bin.gif"
                         alt="Delete Task" title="Delete Task"
                         attribution="https://www.flaticon.com/free-animated-icons/document"></button>
+
             </div>
             `
     document.getElementById("tasks").innerHTML += task1;
+
+}
+
+
+//Step4:
+//Sort Function
+function sortArrayTasks() {
+    taskArray.sort((a, b) => {
+        let titleA = a.title.toLowerCase();
+        let titleB = b.title.toLowerCase();
+
+        if (titleA < titleB) {
+            return -1;
+        }
+        if (titleA > titleB) {
+            return 1;
+        }
+        return 0;
+    })
 }
 
 
 
-//This function will be added to the empty array
-function newTaskArray(taskText) {
-
-    //Object created
-    const task = {
-        time: inputDate.value,
-        title: taskText,
-        completed: false,
-    };
-
-    //Push the user input into empty array
-    taskArray.push(task);
-
-    return task;
-}
-
-
-
-
+//Step5:
 // Delete Button
 function taskOperations(usersparam) {
     let taskElements = document.getElementsByClassName("spanLine");
@@ -118,33 +147,11 @@ function taskOperations(usersparam) {
 };
 
 function removeUser(event, index) {
-
     const entry = event.target.parentNode.parentNode;
     taskArray.splice(index, 1);
     entry.remove();
 }
 
 
-
-//Sort Button
-
-// function sortArrayTasks() {
-//     taskArray.sort((a, b) => {
-//         let titleA = a.title.toLowerCase();
-//         let titleB = b.title.toLowerCase();
-
-//         if (titleA < titleB) {
-//             return -1;
-//         }
-//         if (titleA > titleB) {
-//             return 1;
-//         }
-//         return 0;
-//     })
-// }
-
-// sortTask.addEventListener('click', () => {
-//     sortArrayTasks();
-//     console.log(taskArray);
-// }); 
-
+//Step 6:
+//Completed the task

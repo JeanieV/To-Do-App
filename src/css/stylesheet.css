@@ -59,8 +59,8 @@ form {
     border-radius: 10px;
 }
 
-#addTask1,
-#sortTask1 {
+#addTaskButton,
+#sortTaskButton {
     width: min-content;
     background-color: transparent;
     border: none;
@@ -68,8 +68,8 @@ form {
 
 /* Animation for buttons*/
 
-#addTask1:hover,
-#sortTask1:hover,
+#addTaskButton:hover,
+#sortTaskButton:hover,
 .deleteTask2:hover,
 .editTask2:hover,
 .checkTask2:hover {
