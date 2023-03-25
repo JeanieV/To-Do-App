@@ -58,11 +58,8 @@ function submitFunc(event) {
     else {
         console.log(taskArray);
         newTaskArray(inputTask.value);
-        
         appendTask(taskArray);
-
         sortArrayTasks(taskArray);
-
         taskOperations(taskArray);
 
 
@@ -144,6 +141,8 @@ function taskOperations(usersparam) {
             removeUser(event);
         });
     });
+
+
 };
 
 function removeUser(event, index) {
@@ -153,5 +152,41 @@ function removeUser(event, index) {
 }
 
 
+
 //Step 6:
-//Completed the task
+//Edit the task
+
+function editTasks() {
+
+    let editElements = document.getElementsByClassName("editTask2");
+
+    Array.from(editElements).forEach((el) => {
+        el.addEventListener('click', (event) => {
+            taskEdit(event);
+        });
+    });
+}
+
+function taskEdit(event) {
+    const selectedTask = event.target.parentNode.parentNode;
+
+    inputTask.value = selectedTask.innerHTML;
+    inputDate.value = selectedTask.innerHTML;
+}
+
+//Step 7
+//Completed button
+
+function taskArrayCompleted(){
+let completedTasks = document.getElementsByClassName("checkTask2");
+
+    Array.from(completedTasks).forEach((el) => {
+        el.addEventListener('click', () => {
+
+            inputTask.style.textDecoration = "line-through"
+    });
+    });
+
+}
+
+
