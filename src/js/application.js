@@ -183,6 +183,8 @@ function removeUser(event, index) {
 
 
 
+
+
 //Step 7
 //Completed button
 
