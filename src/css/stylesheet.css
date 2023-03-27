@@ -108,7 +108,12 @@ input {
     font-family: Georgia
 }
 
-
+/* input[type=checkbox]{
+    background-color: #47484A;
+}
+.CheckBox{
+    color: #47484A;
+} */
 
 /*Span element css*/
 
@@ -143,7 +148,23 @@ input {
 .spanLine {
     display: inline-flex;
     margin-left: 20px;
+    
 }
+
+.slide{
+    animation: 1s slide-right;
+    animation-play-state: running;
+}
+
+@keyframes slide-right {
+    from {
+      margin-left: -100%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+
 
 /*Button span css*/
 
@@ -155,9 +176,10 @@ input {
     border: none;
 }
 
+
 /*Media Queries*/
 
-/* @media only screen and (min-width: 200px) {
+/* @media only screen and (min-width: 320px) {
 
     h1 {
         font-size: 25px;
@@ -210,7 +232,7 @@ input {
     }
 }
 
-@media only screen and (min-width: 320px) {
+@media only screen and (min-width: 480px) {
 
     h1 {
         font-size: 25px;

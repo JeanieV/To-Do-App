@@ -77,13 +77,15 @@ function appendTask(task) {
 
     let task1 =
         `
+        <div class="slide">
             <div class="spanLine">
+           
+                <button type="checkbox" class="checkTask2" ><img class="checkTask" src="/src/images/check.gif" alt="Completed" title="Completed"
+                    attribution="https://www.flaticon.com/free-animated-icons/miscellaneous"></button>
+
                 <p class="span1"> ${task.title} </p>
 
                 <p class="span2"> ${task.time} </p>
-        
-                <button type="submit" class="checkTask2"><img class="checkTask" src="/src/images/check.gif" alt="Completed" title="Completed"
-                        attribution="href="https://www.flaticon.com/free-animated-icons/miscellaneous"></button>
 
                 <button type="submit" class="editTask2"><img class="editTask" src="/src/images/edit.gif" alt="Edit Task" title="Edit Task"
                         attribution="https://www.flaticon.com/free-animated-icons/paper"></button>
@@ -92,6 +94,7 @@ function appendTask(task) {
                         alt="Delete Task" title="Delete Task"
                         attribution="https://www.flaticon.com/free-animated-icons/document"></button>
 
+            </div>
             </div>
             `
     document.getElementById("tasks").innerHTML += task1;
@@ -142,7 +145,6 @@ function taskOperations(usersparam) {
         });
     });
 
-
 };
 
 function removeUser(event, index) {
@@ -156,37 +158,45 @@ function removeUser(event, index) {
 //Step 6:
 //Edit the task
 
-function editTasks() {
+// function editTasks() {
 
-    let editElements = document.getElementsByClassName("editTask2");
+//     let editElements = document.getElementsByClassName('spanLine');
 
-    Array.from(editElements).forEach((el) => {
-        el.addEventListener('click', (event) => {
-            taskEdit(event);
-        });
-    });
-}
+//     Array.from(editElements).forEach((el) => {
+//         el.addEventListener('click', (event) => {
+//             taskEdit(event);
+//         });
+//     });
+// }
 
-function taskEdit(event) {
-    const selectedTask = event.target.parentNode.parentNode;
+// function taskEdit() {
+//     const editButton = document.getElementsByClassName('editTask2');
+//     editButton.textContent = 'Edit';
 
-    inputTask.value = selectedTask.innerHTML;
-    inputDate.value = selectedTask.innerHTML;
-}
+//     editButton.addEventListener('click', () => {
+//       const newTaskName = prompt('Enter the new task name:', inputTask.value);
+//       if (newTaskName) {
+//         inputTask.value = newTaskName;
+//       }
+//     });
+// }
+
+
 
 //Step 7
 //Completed button
 
-function taskArrayCompleted(){
-let completedTasks = document.getElementsByClassName("checkTask2");
+// function myFunction() {
+//     let checkBox = document.getElementsByClassName("check")
+//     console.log(checkBox)
 
-    Array.from(completedTasks).forEach((el) => {
-        el.addEventListener('click', () => {
-
-            inputTask.style.textDecoration = "line-through"
-    });
-    });
-
-}
+//     // If the checkbox is checked, display the output text
+//     if (checkBox.checked == true) {
+//         task.title.style.textDecoration = "line-through";
+//     } 
+//     else {
+//         task.title.style.textDecoration = "none";
+//     }
+// }
 
 
