@@ -61,7 +61,7 @@ function submitFunc(event) {
         appendTask(taskArray);
         sortArrayTasks(taskArray);
         taskOperations(taskArray);
-
+        // addClickListeners(taskArray);
 
         // Clear the form inputs
         document.getElementById("task").value = '';
@@ -80,7 +80,7 @@ function appendTask(task) {
         <div class="slide">
             <div class="spanLine">
            
-                <button type="checkbox" class="checkTask2" ><img class="checkTask" src="/src/images/check.gif" alt="Completed" title="Completed"
+                <button type="submit" class="checkTask2" ><img class="checkTask" src="/src/images/check.gif" alt="Completed" title="Completed"
                     attribution="https://www.flaticon.com/free-animated-icons/miscellaneous"></button>
 
                 <p class="span1"> ${task.title} </p>
@@ -158,27 +158,47 @@ function removeUser(event, index) {
 //Step 6:
 //Edit the task
 
-// function editTasks() {
+function addClickListeners() {
+    let editElements = document.getElementsByClassName('spanLine');
 
+    Array.from(editElements).forEach((el) => {
+
+        el.addEventListener('click', () => {
+            const editButton = el.getElementsByClassName('editTask2')[0];
+            editButton.textContent = el.textContent;
+
+            const newTaskName = prompt('Enter the new task name:');
+            if (newTaskName) {
+                el.textContent = newTaskName;
+            }
+            taskArray.push(newTaskName);
+
+            //     for (let i = 0; i < usersparam.length; i++) {
+
+            //         let user1 = appendTask(usersparam[i]);
+
+            //         document.getElementById("tasks").innerHTML + user1;
+            //     }
+            // });
+
+        });
+    });
+};
+
+// function newFunction(usersparam){
 //     let editElements = document.getElementsByClassName('spanLine');
 
-//     Array.from(editElements).forEach((el) => {
-//         el.addEventListener('click', (event) => {
-//             taskEdit(event);
-//         });
-//     });
-// }
+//     console.log(editElements);
 
-// function taskEdit() {
-//     const editButton = document.getElementsByClassName('editTask2');
-//     editButton.textContent = 'Edit';
 
-//     editButton.addEventListener('click', () => {
-//       const newTaskName = prompt('Enter the new task name:', inputTask.value);
-//       if (newTaskName) {
-//         inputTask.value = newTaskName;
-//       }
-//     });
+//     for (let i = 0; i < usersparam.length; i++) {
+
+//         let user1 = appendTask(usersparam[i]);
+
+//         document.getElementById("tasks").innerHTML + user1;
+//     }
+
+
 // }
 
 
@@ -201,4 +221,17 @@ function removeUser(event, index) {
 //     }
 // }
 
+// const taskCompleted = document.getElementsByClassName("checkTask2");
+// taskCompleted.type = 'checkbox';
+// taskCompleted.checked = task.completed;
+
+// function taskCom() {
+//     const taskName = document.getElementsByClassName("spanLine");
+//     taskName.textContent = task.title;
+
+//     taskCompleted.addEventListener('change', () => {
+//         task.completed = taskCompleted.checked;
+//         taskName.classList.toggle('completed');
+//     });
+// }
 
