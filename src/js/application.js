@@ -6,9 +6,6 @@ const inputDate = document.getElementById("date");
 //Where the tasklist should go
 let newTasks = document.getElementById("tasks");
 
-
-
-
 // //Empty Task Array to store input
 let taskArray = [];
 
@@ -18,27 +15,23 @@ let taskArray = [];
 
 
 //Step 1:
-//This function will be added to the empty array
+//This function with object will be pushed into to the empty array
 function newTaskArray(taskText) {
 
-    //Object created
     const task = {
         time: inputDate.value,
         title: taskText,
         completed: false,
     };
 
-    //Push the user input into empty array
     taskArray.push(task);
     return task;
-
 }
 
 
 //Step 2:
 //Function for what happens when user clicks on Add Task
-function submitFunc(event) {
-    event.preventDefault();
+function submitFunc() {
 
     //Input fields
     let toDo = inputTask.value;
@@ -60,8 +53,9 @@ function submitFunc(event) {
         newTaskArray(inputTask.value);
         appendTask(taskArray);
         sortArrayTasks(taskArray);
-        taskOperations(taskArray);
-        // addClickListeners(taskArray);
+        taskDeleteButton(taskArray);
+        taskEditButton(taskArray);
+
 
         // Clear the form inputs
         document.getElementById("task").value = '';
@@ -123,7 +117,7 @@ function sortArrayTasks() {
 
 //Step5:
 // Delete Button
-function taskOperations(usersparam) {
+function taskDeleteButton(usersparam) {
     let taskElements = document.getElementsByClassName("spanLine");
 
     Array.from(taskElements).forEach((event) => {
@@ -154,54 +148,70 @@ function removeUser(event, index) {
 }
 
 
-
 //Step 6:
 //Edit the task
+function taskEditButton() {
 
-function addClickListeners() {
-    let editElements = document.getElementsByClassName('spanLine');
+    let taskElements = document.getElementsByClassName("editTask2");
 
-    Array.from(editElements).forEach((el) => {
-
+    Array.from(taskElements).forEach((el, index) => {
         el.addEventListener('click', () => {
-            const editButton = el.getElementsByClassName('editTask2')[0];
-            editButton.textContent = el.textContent;
-
-            const newTaskName = prompt('Enter the new task name:');
-            if (newTaskName) {
-                el.textContent = newTaskName;
-            }
-            taskArray.push(newTaskName);
-
-            //     for (let i = 0; i < usersparam.length; i++) {
-
-            //         let user1 = appendTask(usersparam[i]);
-
-            //         document.getElementById("tasks").innerHTML + user1;
-            //     }
-            // });
+            finalEdit(index);
 
         });
     });
 };
 
-// function newFunction(usersparam){
-//     let editElements = document.getElementsByClassName('spanLine');
+//Prompts and validation. Old tasks will be deleted if clicked on the edit button
+function finalEdit(index) {
 
-//     console.log(editElements);
+    let firstCheck = false;
+    let secondCheck = false;
 
+    while (firstCheck == false) {
 
-//     for (let i = 0; i < usersparam.length; i++) {
+        const newTaskName = prompt('Enter your New Task:');
 
-//         let user1 = appendTask(usersparam[i]);
+        if (newTaskName !== "") {
 
-//         document.getElementById("tasks").innerHTML + user1;
-//     }
+            taskArray[index].title = newTaskName;
 
+            for (let i = 0; i < taskArray.length; i++) {
 
-// }
+                let user1 = appendTask(taskArray[index]);
 
+                document.getElementById("tasks").innerHTML + user1;
+            }
+            taskDeleteButton(taskArray);
+            firstCheck = true;
+        }
+        else if(newTaskName == "") {
+            alert("Enter your new Task");
+        }
+    }
 
+    while (secondCheck == false) {
+
+        const newDate = prompt('Enter a New Date in the following format:\nExample 2023-04-12');
+
+        if (newDate !== "" && parseInt(newDate)) {
+
+            taskArray[index].time = newDate;
+
+            for (let i = 0; i < taskArray.length; i++) {
+
+                let user1 = appendTask(taskArray[index]);
+
+                document.getElementById("tasks").innerHTML + user1;
+            }
+            taskDeleteButton(taskArray);
+            secondCheck = true;
+        }
+        else if(isNaN(newDate)){
+            alert("Enter a date in the correct format: \nExample 2023-04-12");
+        }
+    }
+}
 
 
 
@@ -215,7 +225,7 @@ function addClickListeners() {
 //     // If the checkbox is checked, display the output text
 //     if (checkBox.checked == true) {
 //         task.title.style.textDecoration = "line-through";
-//     } 
+//     }
 //     else {
 //         task.title.style.textDecoration = "none";
 //     }

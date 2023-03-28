@@ -22,7 +22,7 @@ h2 {
     font-size: 30px;
 }
 
-form {
+.form {
     max-width: 600px;
     height: max-content;
     background-color: #BC9476;
@@ -201,7 +201,7 @@ input {
         font-size: 14px;
     }
 
-    form {
+    .form {
         margin: 20vw;
         max-width: 250px;
         padding: 10px;
@@ -288,7 +288,7 @@ input {
         font-size: 15px;
     }
 
-    form {
+    .form {
         margin: 20vw;
         max-width: 250px;
         padding: 10px;
@@ -375,7 +375,7 @@ input {
         font-size: 17px;
     }
 
-    form {
+    .form {
         margin: 25vw;
         max-width: 250px;
         padding: 10px;
@@ -459,7 +459,7 @@ input {
         font-size: 19px;
     }
 
-    form {
+    .form {
         margin-left: 30vw;
         max-width: 350px;
         padding: 10px;
@@ -543,7 +543,7 @@ input {
         font-size: 25px;
     }
 
-    form {
+    .form {
         margin-left: 30vw;
         max-width: 400px;
         padding: 10px;
@@ -627,12 +627,12 @@ input {
         font-size: 30px;
     }
 
-    form {
+    .form {
         max-width: 600px;
         height: max-content;
         background-color: #BC9476;
         margin-top: 100px;
-        margin-left: 450px;
+        margin-left: 28vw;
         margin-bottom: 50px;
         border-radius: 7px;
         padding: 28px 0 30px;
