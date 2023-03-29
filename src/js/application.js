@@ -9,10 +9,11 @@ let newTasks = document.getElementById("tasks");
 // //Empty Task Array to store input
 let taskArray = [];
 
+//Local storage 
 // function saveTasks() {
 //     localStorage.setItem('taskArray', JSON.stringify(taskArray));
 // }
-
+// JSON.parse(localStorage.getItem('tasks')) ||
 
 //Step 1:
 //This function with object will be pushed into to the empty array
@@ -25,7 +26,9 @@ function newTaskArray(taskText) {
     };
 
     taskArray.push(task);
+    
     return task;
+    
 }
 
 
@@ -55,11 +58,13 @@ function submitFunc() {
         sortArrayTasks(taskArray);
         taskDeleteButton(taskArray);
         taskEditButton(taskArray);
-
-
+        taskCompletedButton(taskArray);
+        
         // Clear the form inputs
         document.getElementById("task").value = '';
         document.getElementById("date").value = '';
+
+        
     }
 }
 submitTask.addEventListener("click", submitFunc);
@@ -92,7 +97,7 @@ function appendTask(task) {
             </div>
             `
     document.getElementById("tasks").innerHTML += task1;
-
+    
 }
 
 
@@ -111,6 +116,7 @@ function sortArrayTasks() {
         }
         return 0;
     })
+   
 }
 
 
@@ -138,7 +144,7 @@ function taskDeleteButton(usersparam) {
             removeUser(event);
         });
     });
-
+    
 };
 
 function removeUser(event, index) {
@@ -157,9 +163,10 @@ function taskEditButton() {
     Array.from(taskElements).forEach((el, index) => {
         el.addEventListener('click', () => {
             finalEdit(index);
-
+           
         });
     });
+    
 };
 
 //Prompts and validation. Old tasks will be deleted if clicked on the edit button
@@ -182,12 +189,15 @@ function finalEdit(index) {
 
                 document.getElementById("tasks").innerHTML + user1;
             }
+            //This part will make sure that the other buttons work after the task has been edited
             taskDeleteButton(taskArray);
+            taskCompletedButton(taskArray);
             firstCheck = true;
         }
-        else if(newTaskName == "") {
+        else if (newTaskName == "") {
             alert("Enter your new Task");
         }
+        
     }
 
     while (secondCheck == false) {
@@ -204,44 +214,49 @@ function finalEdit(index) {
 
                 document.getElementById("tasks").innerHTML + user1;
             }
+            //This part will make sure that the other buttons work after the task has been edited
             taskDeleteButton(taskArray);
+            taskCompletedButton(taskArray);
             secondCheck = true;
         }
-        else if(isNaN(newDate)){
+        else if (isNaN(newDate)) {
             alert("Enter a date in the correct format: \nExample 2023-04-12");
         }
     }
+    
 }
-
 
 
 //Step 7
 //Completed button
 
-// function myFunction() {
-//     let checkBox = document.getElementsByClassName("check")
-//     console.log(checkBox)
+function taskCompletedButton() {
 
-//     // If the checkbox is checked, display the output text
-//     if (checkBox.checked == true) {
-//         task.title.style.textDecoration = "line-through";
-//     }
-//     else {
-//         task.title.style.textDecoration = "none";
-//     }
-// }
+    let taskCompleted = document.getElementsByClassName("checkTask2");
 
-// const taskCompleted = document.getElementsByClassName("checkTask2");
-// taskCompleted.type = 'checkbox';
-// taskCompleted.checked = task.completed;
+    Array.from(taskCompleted).forEach((el, index) => {
+        el.addEventListener('click', () => {
+            finalCompleted(index);
+        });
+    });
+    
+};
 
-// function taskCom() {
-//     const taskName = document.getElementsByClassName("spanLine");
-//     taskName.textContent = task.title;
-
-//     taskCompleted.addEventListener('change', () => {
-//         task.completed = taskCompleted.checked;
-//         taskName.classList.toggle('completed');
-//     });
-// }
-
+//A line will go through the title and time if the 'checkTask2' button is clicked.
+function finalCompleted(index) {
+    
+    let taskElements = document.getElementsByClassName("spanLine");
+    let taskElement = taskElements[index];
+  
+    if (taskElement.classList.contains('completed')) {
+        //Here if you click on the checkTask2 button again, the line will be removed
+      taskElement.classList.remove('completed');
+      taskElement.style.textDecoration = 'none';
+    } 
+    else { 
+        //Here the checkTask2 button will add a line through the title and time if completed
+      taskElement.classList.add('completed');
+      taskElement.style.textDecoration = 'line-through';
+    }  
+    
+}

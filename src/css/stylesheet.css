@@ -108,12 +108,9 @@ input {
     font-family: Georgia
 }
 
-/* input[type=checkbox]{
-    background-color: #47484A;
-}
-.CheckBox{
-    color: #47484A;
-} */
+.completed-task {
+    text-decoration: line-through;
+  }
 
 
 /*Span element css*/
@@ -152,9 +149,6 @@ input {
 
 }
 
-/* .task.completed {
-    text-decoration: line-through;
-  } */
 
 
 /* Slide animation */
