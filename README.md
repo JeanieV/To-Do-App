@@ -28,10 +28,8 @@ The following buttons are:
 ![Screenshot_4](https://user-images.githubusercontent.com/115072704/228795643-eb2eabce-7ebc-4181-b442-e617f5a2e4a1.png)
 
 
-Step 3: 
+Step 3: Edit Task
 
-
-Edit Task
 
 If you wish to Edit your task, you can click on the button mentioned above to be number 1.
 You will then get an Alert on your screen with the following question.
@@ -53,7 +51,7 @@ Please note! You can only enter numeric values otherwise you will get this error
 
 
 
-Delete Task
+Step 3: Delete Task
 
 
 
@@ -64,7 +62,7 @@ If you click on the button, the task you created will be deleted. This will also
 
 
 
-Completed Task
+Step 3: Completed Task
 
 
 
