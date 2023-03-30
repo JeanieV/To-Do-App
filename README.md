@@ -1,6 +1,7 @@
 # To-Do-App
 Using  HTML, CSS and JavaScript I am going to create a Single Page Application (SPA) that helps users keep track of various tasks.
-Please find information below to navigate the app with relevant screenshots.
+This To-Do App makes it possible for a user to add, edit, delete and complete tasks. The best part is that the tasks are sorted automatically in alphabetical order even when the user clicks on 'refresh' or close the browser.
+Please find information below on how to navigate the app with relevant screenshots.
 
 Welcome to my To-Do App.
 
@@ -109,3 +110,12 @@ Noticed how your tasks gets sorted automatically when adding a few of them?
 Look at this simple example to demonstrate how the To-Do App automatically sorts the tasks in alphabetical order.
 
 ![Screenshot_16](https://user-images.githubusercontent.com/115072704/228806314-e27c22f9-1490-4aab-a8c9-b65903b853e4.png)
+
+Step 6:
+
+When a user clicks on the 'refresh' button or close the browser, the tasks will remain on the application. 
+To remove the task, you will need to delete it by clicking on the delete button.
+
+
+Note from the developer:
+Enjoy adding, editing, deleting and completing tasks.
