@@ -1,7 +1,9 @@
 //Get Element by class and id
+let task;
 const inputTask = document.getElementById("task");
 const submitTask = document.getElementById("addTaskButton");
 const inputDate = document.getElementById("date");
+
 
 //Where the tasklist should go
 let newTasks = document.getElementById("tasks");
@@ -12,7 +14,7 @@ let taskArray = JSON.parse(localStorage.getItem('tasks')) || [];
 
 
 //Where the user input will be stored (Local Storage)
-function saveTasks() {
+function saveTasks(taskArray) {
     localStorage.setItem('taskArray', JSON.stringify(taskArray));
 }
 
@@ -45,20 +47,26 @@ class TaskFunction {
     }
 
 
-    constructor(time, title, completed) {
+    constructor(time, title, completed = false) {
         this._time = time;
         this._title = title;
         this._completed = completed;
     }
+
+    toggleCompleted = () => {
+        this._completed = !this._completed;
+    }
+
 }
+
+
+
 
 //This is a function for all the new tasks the users will enter on the app
 
 function createTask() {
     const task = new TaskFunction(inputDate.value, inputTask.value, false);
     taskArray.push(task);
-    saveTasks();
-    return task;
 }
 
 
@@ -86,21 +94,22 @@ function submitFunc() {
     else {
         console.log(taskArray);
         //This is where the task is created, appended, sorted, deleted, edited and completed all on one page.
+        
         createTask(taskArray);
         appendTask(taskArray);
         sortArrayTasks(taskArray);
         taskDeleteButton(taskArray);
         taskEditButton(taskArray);
         taskCompletedButton(taskArray);
-        saveTasks();
+        saveTasks(taskArray);
 
 
         // Clear the form inputs
         document.getElementById("task").value = '';
         document.getElementById("date").value = '';
 
+        saveTasks(taskArray);
 
-        saveTasks();
     }
 }
 submitTask.addEventListener("click", submitFunc);
@@ -134,9 +143,10 @@ function appendTask(task) {
             </div>
             `
     document.getElementById("tasks").innerHTML += task1;
-    saveTasks();
 
+    saveTasks(taskArray);
 }
+
 
 
 //Step4:
@@ -154,7 +164,7 @@ function sortArrayTasks() {
         }
         return 0;
     })
-    saveTasks();
+    saveTasks(taskArray);
 }
 
 
@@ -182,7 +192,7 @@ function taskDeleteButton(usersparam) {
             removeUser(event);
         });
     });
-    saveTasks();
+    saveTasks(taskArray);
 };
 
 function removeUser(event, index) {
@@ -204,7 +214,7 @@ function taskEditButton() {
 
         });
     });
-    saveTasks();
+    saveTasks(taskArray);
 };
 
 //Prompts and validation. Old tasks will be deleted if clicked on the edit button
@@ -231,11 +241,12 @@ function finalEdit(index) {
             taskDeleteButton(taskArray);
             taskCompletedButton(taskArray);
             firstCheck = true;
+            saveTasks(taskArray);
         }
         else if (newTaskName == "") {
             alert("Enter your new Task");
         }
-        saveTasks();
+
     }
 
     while (secondCheck == false) {
@@ -256,11 +267,12 @@ function finalEdit(index) {
             taskDeleteButton(taskArray);
             taskCompletedButton(taskArray);
             secondCheck = true;
+            saveTasks(taskArray);
         }
         else if (isNaN(newDate)) {
             alert("Enter a date in the correct format: \nExample 2023-04-12");
         }
-        saveTasks();
+
     }
 
 }
@@ -278,7 +290,7 @@ function taskCompletedButton() {
             finalCompleted(index);
         });
     });
-    saveTasks();
+
 };
 
 //A line will go through the title and time if the 'checkTask2' button is clicked.
@@ -292,14 +304,14 @@ function finalCompleted(index) {
         taskElement.classList.remove('completed');
         taskElement.style.textDecoration = 'none';
         alert("Keep going! \nYou're on your way to complete the task");
-        saveTasks();
+
+
     }
     else {
         //Here the checkTask2 button will add a line through the title and time if completed
         taskElement.classList.add('completed');
         taskElement.style.textDecoration = 'line-through';
         alert(`Well done! \nYou have completed the task`);
-        saveTasks();
-    }
 
+    }
 }
