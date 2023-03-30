@@ -103,3 +103,9 @@ Click on the delete button and the task will be removed if you only want to focu
 ![Screenshot_15](https://user-images.githubusercontent.com/115072704/228804720-6d915ea3-739e-4745-98a7-7d0adac1e2a0.png)
 
 
+Step 5:
+
+Noticed how your tasks gets sorted automatically when adding a few of them?
+Look at this simple example to demonstrate how the To-Do App automatically sorts the tasks in alphabetical order.
+
+![Screenshot_16](https://user-images.githubusercontent.com/115072704/228806314-e27c22f9-1490-4aab-a8c9-b65903b853e4.png)
