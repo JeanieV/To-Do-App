@@ -81,3 +81,25 @@ If you decide that you haven't completed the task, you can just click on the but
 
 ![Screenshot_11](https://user-images.githubusercontent.com/115072704/228801128-f3dc956b-efab-411f-8708-1cd416dd5bb7.png)
 
+
+Step 4:
+
+This is an example of the Task List section on your app.
+
+![Screenshot_12](https://user-images.githubusercontent.com/115072704/228803411-8b13ec9f-ea9b-4869-b964-eaaf8f787717.png)
+
+If for example you wish to change your learning session with a doctors appointment, simply click on the edit button next to the relevant task and follow the on-screen instructions. Your output will then look this.
+
+![Screenshot_13](https://user-images.githubusercontent.com/115072704/228803951-58a739ee-fda4-4457-83bd-591421453387.png)
+
+Notice the difference?
+
+Now you already ate your apple and decide to complete it on your task list. Simply click on the complete button next to the relevant task and a line will be drawn through your task and its due date.
+
+![Screenshot_14](https://user-images.githubusercontent.com/115072704/228804437-256bb30c-bac1-425a-aac3-b2a659c9b0bd.png)
+
+Click on the delete button and the task will be removed if you only want to focus on the remaining tasks.
+
+![Screenshot_15](https://user-images.githubusercontent.com/115072704/228804720-6d915ea3-739e-4745-98a7-7d0adac1e2a0.png)
+
+
