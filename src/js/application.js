@@ -30,7 +30,7 @@ window.addEventListener("load", () => {
     for (let i = 0; i < taskArray.length; i++) {
         checkCompletedFunction(i);
     }
-   
+
     console.log(taskArray);
 });
 
@@ -38,7 +38,7 @@ window.addEventListener("load", () => {
 
 
 //Step 1:
-//This Class will be pushed into the empty array
+//This Class will be pushed into the empty array with getters and setters
 class Task {
 
     constructor(time, title) {
@@ -73,7 +73,7 @@ class Task {
 }
 
 
-//This is a function for all the new tasks the users will enter on the app
+//This is a function for all the new tasks the user will enter on the app
 
 function createTask() {
     let task = new Task(inputDate.value, inputTask.value);
@@ -85,7 +85,7 @@ function createTask() {
 
 //Step 2:
 //Function for what happens when user clicks on Add Task
-function submitFunc(index) {
+function submitFunc() {
 
     //Input fields
     let toDo = inputTask.value;
@@ -115,6 +115,7 @@ function submitFunc(index) {
 
         for (let i = 0; i < taskArray.length; i++) {
             checkCompletedFunction(i);
+           
         }
 
         // Clear the form inputs
@@ -129,7 +130,7 @@ submitTask.addEventListener("click", submitFunc);
 
 
 //Step 3:
-//This will append to form when the user enters task and due date
+//This template literal will append to the application when the user enters task and due date
 function appendTask(task) {
 
     let task1 =
@@ -162,6 +163,7 @@ function appendTask(task) {
 
 //Step4:
 //Sort Function
+//The tasks will be sorted automatically in alphabetical order
 function sortArrayTasks() {
     taskArray.sort((a, b) => {
         let titleA = a._title.toLowerCase();
@@ -198,12 +200,11 @@ function taskDeleteButton(usersparam) {
 
     taskElements = document.getElementsByClassName("deleteTask2");
 
-    Array.from(taskElements).forEach((el) => {
+    Array.from(taskElements).forEach((el,index) => {
         el.addEventListener('click', (event) => {
-            removeUser(event);
+            removeUser(event,index);
         });
     });
-    console.log(taskArray);
 };
 
 function removeUser(event, index) {
@@ -252,7 +253,7 @@ function finalEdit(index) {
             taskDeleteButton(taskArray);
             taskEditButton(taskArray);
             taskCompletedButton(taskArray);
-
+            sortArrayTasks(taskArray);
 
             saveTasks();
             firstCheck = true;
@@ -283,7 +284,7 @@ function finalEdit(index) {
             taskDeleteButton(taskArray);
             taskEditButton(taskArray);
             taskCompletedButton(taskArray);
-
+            sortArrayTasks(taskArray);
             saveTasks();
             secondCheck = true;
 
@@ -311,7 +312,9 @@ function taskCompletedButton(taskArray) {
     saveTasks();
 }
 
+//This function ensures that a line gets drawn through the completed task or not.
 function finalCompleted(index, taskArray) {
+
     let taskElements = document.getElementsByClassName("spanLine");
     let taskElement = taskElements[index];
 
@@ -322,7 +325,9 @@ function finalCompleted(index, taskArray) {
         taskElement.style.textDecoration = 'none';
         saveTasks();
         alert("Keep going! \nYou're on your way to complete the task.");
-    } else {
+
+    }
+    else {
         //Here the checkTask2 button will add a line through the title and time if completed
         taskElement.classList.add('completed');
         taskArray[index]._completed = true;
@@ -330,12 +335,11 @@ function finalCompleted(index, taskArray) {
         alert("Well done! \nYou have completed the task.");
         saveTasks();
     }
-    
-    console.log(taskArray[index]._completed);
-    checkCompletedFunction(index);
     saveTasks();
+    console.log(taskArray[index]._completed)
 }
 
+//This function is to ensure that even when the browser closes or gets refreshed, the task will remain completed or not.
 function checkCompletedFunction(index) {
 
     let taskElements = document.getElementsByClassName("spanLine");

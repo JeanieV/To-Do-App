@@ -175,11 +175,12 @@ input {
     border: none;
 }
 
+/* text decoration for the completed task */
 .completed {
     text-decoration: line-through;
   }
 
-/*Media Queries*/
+/*Media Queries Below*/
 @media only screen and (min-width: 200px) and (max-width: 319px) {
 
     body {
